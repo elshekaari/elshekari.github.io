@@ -1,9 +1,6 @@
-// Fade background video in slowly
-const bgVideo = document.getElementById('bg-video');
-bgVideo.style.opacity = 0;
-window.addEventListener('load', () => {
-  setTimeout(() => {
-    bgVideo.style.transition = 'opacity 4s ease';
-    bgVideo.style.opacity = 0.25;
-  }, 500);
+const hamburger = document.getElementById('hamburger');
+const navMenu = document.getElementById('nav-menu');
+
+hamburger.addEventListener('click', () => {
+  navMenu.classList.toggle('hidden');
 });
