@@ -1,23 +1,16 @@
 # El Shekari Portfolio
 
-Welcome to the dark, cinematic digital gallery of **El Shekari**.  
-This website showcases paintings, video art, documentaries, sculptures, prints, clothing, stop-motions, installations, and drawings.  
+Welcome to the cinematic, dark, and minimalist digital gallery of **El Shekari**.
+
+This website is a **single-page landing site** with:
+
+- Full-screen looping videos or images
+- Hamburger menu (three lines) that opens to reveal navigation
+- Bone white text (#F3EDE2) and ash gray UI (#C1C1C1)
+- Fonts: Playfair Display (titles) and Inter (body)
+- Sections: WORKS, ABOUT, SHOP, CONTACT
 
 ## 🎨 Style & Mood
-- Minimalist, haunting, and modern  
-- Colors: Bone White (#F3EDE2), Ash Gray (#C1C1C1), Deep Black (#0A0A0A)  
-- Typography: Playfair Display (titles), Inter (body)  
-- Full-screen looping videos and images  
+Moody, modern, and mysterious — like walking through a digital projection room where every artwork loops endlessly.
 
-## 🖤 Sections
-- **Works** – gallery of all categories  
-- **About** – biography & artist statement  
-- **CV**, **Exhibitions**, **Shop**, **Contact** – minimal layouts  
-
-## ⚡ Features
-- Smooth scrolling  
-- Light film grain overlay  
-- Fade-in animations  
-- Subtle ambient motion blur on hover  
-
-## 📂 Repository Structure
+## 🗂 Repository Structure
