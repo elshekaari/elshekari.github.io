@@ -14,3 +14,4 @@ This website is a **single-page landing site** with:
 Moody, modern, and mysterious — like walking through a digital projection room where every artwork loops endlessly.
 
 ## 🗂 Repository Structure
+
