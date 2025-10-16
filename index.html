@@ -13,16 +13,17 @@
 </head>
 <body>
 
-  <!-- Background Video -->
-  <video autoplay muted loop id="bg-video" class="background-video">
-    <source src="media/background.mp4" type="video/mp4">
-  </video>
+  <!-- Looping Gallery -->
+  <div id="gallery-container">
+    <video autoplay muted loop class="gallery-item" src="media/work1.mp4"></video>
+    <img class="gallery-item" src="media/work2.jpg" alt="Work 2">
+    <video autoplay muted loop class="gallery-item" src="media/work3.mp4"></video>
+  </div>
 
-  <!-- Overlay Content -->
+  <!-- Overlay: signature + hamburger -->
   <div class="overlay">
     <img src="media/signature.png" alt="El Shekari Signature" class="signature">
 
-    <!-- Hamburger Menu -->
     <div class="hamburger" id="hamburger">
       <div></div>
       <div></div>
@@ -37,26 +38,11 @@
     </nav>
   </div>
 
-  <!-- Optional: small content sections below landing if you want -->
-  <section id="works">
-    <h1>WORKS</h1>
-    <p>Gallery preview coming soon...</p>
-  </section>
-
-  <section id="about">
-    <h1>ABOUT</h1>
-    <p>Poetic biography text...</p>
-  </section>
-
-  <section id="shop">
-    <h1>SHOP</h1>
-    <p>Merchandise or prints here...</p>
-  </section>
-
-  <section id="contact">
-    <h1>CONTACT</h1>
-    <p>Email or social links...</p>
-  </section>
+  <!-- Optional sections below landing -->
+  <section id="works"></section>
+  <section id="about"></section>
+  <section id="shop"></section>
+  <section id="contact"></section>
 
   <!-- JS -->
   <script src="script.js"></script>
