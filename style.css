@@ -1,34 +1,42 @@
 :root {
   --bone-white: #F3EDE2;
-  --ash-gray: #C1C1C1;
-  --deep-black: #0A0A0A;
+  --ash-gray: #C1C1C1;     /* darkest background */
+  --dark-gray: #E0E0E0;    /* lighter overlay/background as needed */
 }
 
 /* Base */
 body {
   margin: 0;
   font-family: 'Inter', sans-serif;
+  background: var(--ash-gray);
+  overflow: hidden;
   color: var(--bone-white);
-  background: var(--deep-black);
-  overflow-x: hidden;
 }
 
+/* Fonts */
 h1 {
   font-family: 'Playfair Display', serif;
-  font-size: 3rem;
-  text-align: center;
 }
 
-/* Background Video */
-.background-video {
+/* Gallery Container */
+#gallery-container {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
+  overflow: hidden;
+  background: var(--ash-gray);
+}
+
+.gallery-item {
+  position: absolute;
+  width: 100%;
+  height: 100%;
   object-fit: cover;
-  z-index: -1;
-  filter: brightness(0.4) grayscale(60%);
+  opacity: 0;
+  transition: opacity 2s ease-in-out;
+  filter: brightness(0.9); /* slightly lighter for gray mood */
 }
 
 /* Overlay */
@@ -46,7 +54,7 @@ h1 {
   height: 50px;
 }
 
-/* Hamburger */
+/* Hamburger Menu */
 .hamburger {
   display: flex;
   flex-direction: column;
@@ -69,7 +77,7 @@ nav {
   right: 2rem;
   display: flex;
   flex-direction: column;
-  background: rgba(10,10,10,0.8);
+  background: rgba(200, 200, 200, 0.7); /* gray overlay instead of black */
   padding: 1rem 2rem;
   border-radius: 8px;
   gap: 1rem;
@@ -84,14 +92,13 @@ nav a {
   text-decoration: none;
   font-family: 'Playfair Display', serif;
   font-size: 1.2rem;
-  transition: color 0.3s ease;
 }
 
 nav a:hover {
-  color: var(--ash-gray);
+  color: var(--dark-gray);
 }
 
-/* Sections */
+/* Optional sections below landing */
 section {
   padding: 10rem 2rem;
   min-height: 100vh;
