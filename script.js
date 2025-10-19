@@ -20,9 +20,6 @@ document.addEventListener('DOMContentLoaded', function() {
       slides[current].classList.add('active');
     }, 5000); // 5 seconds per slide
   }
-
-  // Your old nav + lightbox code stays below
-});
 // script.js
 // Vanilla JS lightbox + mobile and desktop nav toggle + smooth scrolling
 
