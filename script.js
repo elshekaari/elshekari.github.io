@@ -1,25 +1,3 @@
-// HERO SLIDESHOW (images + videos)
-document.addEventListener('DOMContentLoaded', function() {
-  const slides = document.querySelectorAll('.hero-slideshow img, .hero-slideshow video');
-  let current = 0;
-
-  if(slides.length){
-    slides[current].classList.add('active');
-
-    setInterval(() => {
-      slides[current].classList.remove('active');
-
-      // Pause video before hiding
-      if(slides[current].tagName === 'VIDEO') slides[current].pause();
-
-      current = (current + 1) % slides.length;
-
-      // Play video if new slide is a video
-      if(slides[current].tagName === 'VIDEO') slides[current].play();
-
-      slides[current].classList.add('active');
-    }, 5000); // 5 seconds per slide
-  }
 // script.js
 // Vanilla JS lightbox + mobile and desktop nav toggle + smooth scrolling
 
