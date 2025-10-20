@@ -3,8 +3,8 @@
    ====================== */
 * { box-sizing: border-box; margin:0; padding:0; }
 :root{
-  --base:#c1c1c1;         /* user-specified background */
-  --text:#111;            /* dark text for contrast */
+  --base:#1c1c1c;         /* user-specified background */
+  --text:#bfbfbf;            /* dark text for contrast */
   --muted:#333;
   --accent:#000;          /* icon color (black) */
   --max-width:1100px;
