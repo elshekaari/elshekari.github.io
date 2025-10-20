@@ -1,191 +1,110 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>El Shekari — Portfolio</title>
-
-  <!-- EB Garamond from Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;600;800&display=swap" rel="stylesheet">
-
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>El Shekari</title>
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
-  <meta name="description" content="El Shekari — video art, painting, sculpture, installation. Portfolio." />
 </head>
+
 <body>
-  <header class="site-header">
-    <nav class="nav container" role="navigation" aria-label="Main navigation">
-      <a class="logo" href="#home">EL SHEKARI</a>
-      <ul class="nav-list" id="nav-list">
-        <li><a href="#works">Works</a></li>
-        <li><a href="#bio">Bio + CV</a></li>
-        <li><a href="#instudio">In Studio</a></li>
-        <li><a href="#contact">Contact</a></li>
-      </ul>
-      <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation">☰</button>
-    </nav>
-  </header>
 
-  <main>
-    <!-- HERO -->
-<section id="home" class="hero">
-  <div class="hero-slideshow">
-    <!-- Videos -->
-    <video autoplay muted loop playsinline src="/videos/video1.mp4"></video>
-    <video autoplay muted loop playsinline src="/videos/video2.mp4"></video>
-    <img src="//Volumes/eloel/5555555555/ARTWORKS/ceramic/C2AF6CCD-1832-44CA-83E4-FA8535AD054E.jpg" alt="Work 1">
-    <img src="/images/work2.jpg" alt="Work 2">
-    <img src="/images/work3.jpg" alt="Work 3">
+  <!-- ===== BACKGROUND VIDEO ===== -->
+  <div class="background">
+    <video autoplay muted loop playsinline>
+      <source src="videos/background.mp4" type="video/mp4">
+    </video>
   </div>
 
-  <div class="hero-overlay">
+  <!-- ===== HOME SECTION ===== -->
+  <section id="home" class="content">
     <h1>EL SHEKARI</h1>
-    <div class="social-icons">
-      <a href="https://www.instagram.com/elshekaari" target="_blank"><img src="/icons/instagram.svg" alt="Instagram"></a>
-      <a href="https://www.youtube.com/" target="_blank"><img src="/icons/youtube.svg" alt="YouTube"></a>
-      <a href="https://vimeo.com/" target="_blank"><img src="/icons/vimeo.svg" alt="Vimeo"></a>
+    <nav>
+      <a href="#" id="works-link">WORK</a>
+      <a href="#" id="about-link">ABOUT</a>
+      <a href="#" id="contact-link">CONTACT</a>
+    </nav>
+    <div class="socials">
+      <a href="https://www.instagram.com/elshekaari" target="_blank"><img src="icons/instagram.svg" alt="Instagram"></a>
+      <a href="https://www.youtube.com/" target="_blank"><img src="icons/youtube.svg" alt="YouTube"></a>
+      <a href="https://vimeo.com/" target="_blank"><img src="icons/vimeo.svg" alt="Vimeo"></a>
     </div>
-    <a href="#works" class="scroll-down">↓</a>
-  </div>
-</section>
-    <!-- WORKS / GALLERY (master index) -->
-    <section id="works" class="section">
-      <div class="container">
-        <h2 class="section-title">Works</h2>
-        <p class="section-sub">Selected work across mediums. Click to open.</p>
+  </section>
 
-        <div class="gallery-grid" aria-live="polite">
-          <!-- Placeholders: replace with your images -->
-          <figure class="thumb">
-            <img src="/images/work1.jpg" alt="Work 1 — placeholder" loading="lazy" data-full="/images/work1.jpg">
-            <figcaption>Work 1 — Painting</figcaption>
-          </figure>
-
-          <figure class="thumb">
-            <img src="/images/work2.jpg" alt="Work 2 — placeholder" loading="lazy" data-full="/images/work2.jpg">
-            <figcaption>Work 2 — Video still</figcaption>
-          </figure>
-
-          <figure class="thumb">
-            <img src="/images/work3.jpg" alt="Work 3 — placeholder" loading="lazy" data-full="/images/work3.jpg">
-            <figcaption>Work 3 — Sculpture</figcaption>
-          </figure>
-
-          <figure class="thumb">
-            <img src="/images/work4.jpg" alt="Work 4 — placeholder" loading="lazy" data-full="/images/work4.jpg">
-            <figcaption>Work 4 — Installation</figcaption>
-          </figure>
-
-          <figure class="thumb">
-            <img src="/images/work5.jpg" alt="Work 5 — placeholder" loading="lazy" data-full="/images/work5.jpg">
-            <figcaption>Work 5 — Drawing</figcaption>
-          </figure>
-
-          <figure class="thumb">
-            <img src="/images/work6.jpg" alt="Work 6 — placeholder" loading="lazy" data-full="/images/work6.jpg">
-            <figcaption>Work 6 — Clothing</figcaption>
-          </figure>
-        </div>
+  <!-- ===== WORKS SECTION ===== -->
+  <section id="works" class="works">
+    <div class="works-content">
+      <h2>WORK</h2>
+      <div class="categories">
+        <a href="#" class="category" id="painting-link">Painting</a>
+        <a href="#" class="category" id="videoart-link">Video Art</a>
+        <a href="#" class="category" id="installation-link">Installation</a>
       </div>
-    </section>
-
-    <!-- Category anchors (optional duplicates for deep linking) -->
-    <section id="paintings" class="section small">
-      <div class="container">
-        <h3 class="section-title">Paintings</h3>
-        <p class="section-sub">Oil, cyanotype prints, and surface experiments.</p>
-      </div>
-    </section>
-
-    <section id="videoarts" class="section small">
-      <div class="container">
-        <h3 class="section-title">Video Arts</h3>
-        <p class="section-sub">Performance video art, documentary, and experimental edits.</p>
-      </div>
-    </section>
-
-    <section id="sculptures" class="section small">
-      <div class="container">
-        <h3 class="section-title">Sculptures & Installations</h3>
-        <p class="section-sub">Objects, casts, and site-specific pieces.</p>
-      </div>
-    </section>
-
-    <section id="drawings" class="section small">
-      <div class="container">
-        <h3 class="section-title">Drawings</h3>
-        <p class="section-sub">Collages, stop-motion artifacts, sketches.</p>
-      </div>
-    </section>
-
-    <section id="clothing" class="section small">
-      <div class="container">
-        <h3 class="section-title">Clothing Design</h3>
-        <p class="section-sub">Hand-printed cyanotype garments and small collections.</p>
-      </div>
-    </section>
-
-    <!-- BIO -->
-    <section id="bio" class="section">
-      <div class="container bio-grid">
-        <div class="bio-image">
-          <img src="/images/bio.jpg" alt="El Shekari — portrait" loading="lazy">
-        </div>
-        <div class="bio-text">
-          <h2 class="section-title">Bio</h2>
-          <p class="section-sub">Artist statement</p>
-          <p>
-            El Shekari works with video, painting and object-making to examine memory, ritual, and the body.
-            Using a mixture of archival footage, hand-printed textiles, and sculptural forms, the work explores repetition
-            as a method of remembering and forgetting.
-          </p>
-
-          <h4 class="cv-title">CV (selected)</h4>
-          <ul class="cv-list">
-            <li>Exhibitions — City Gallery, Project Space</li>
-            <li>Residency — Studio Residency, 2023</li>
-            <li>Education — B.A. Painting</li>
-          </ul>
-        </div>
-      </div>
-    </section>
-
-    <!-- IN STUDIO -->
-    <section id="instudio" class="section small">
-      <div class="container">
-        <h3 class="section-title">In Studio</h3>
-        <p class="section-sub">Process notes and snapshots from the studio.</p>
-      </div>
-    </section>
-
-    <!-- CONTACT -->
-    <section id="contact" class="section contact-section">
-      <div class="container">
-        <h2 class="section-title">Contact</h2>
-        <p class="section-sub">For inquiries, commissions, and collaborations:</p>
-
-        <div class="contact-grid">
-          <div>
-            <p class="contact-item"><strong>Email</strong><br><a href="mailto:hello@elshekari.com">hello@elshekari.com</a></p>
-            <p class="contact-item"><strong>Instagram</strong><br><a href="https://www.instagram.com/elshekaari" target="_blank" rel="noopener">instagram.com/elshekaari</a></p>
-            <p class="contact-item"><strong>CV</strong><br><a href="/files/El-Shekari-CV.pdf" target="_blank" rel="noopener">Download PDF</a></p>
-          </div>
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <!-- LIGHTBOX -->
-  <div id="lightbox" class="lightbox" aria-hidden="true" role="dialog" aria-label="Image preview">
-    <button id="lightbox-close" class="lightbox-close" aria-label="Close">✕</button>
-    <img id="lightbox-img" src="" alt="">
-    <p id="lightbox-caption" class="lightbox-caption"></p>
-  </div>
-
-  <footer class="site-footer">
-    <div class="container">
-      <small>© El Shekari — all images are placeholders</small>
+      <button id="back-btn">← Back</button>
     </div>
-  </footer>
+  </section>
+
+  <!-- ===== PAINTING SECTION ===== -->
+  <section id="painting" class="gallery">
+    <h2>Painting</h2>
+    <div class="grid">
+      <!-- Add your paintings here -->
+      <img src="works/painting1.jpg" alt="Painting 1">
+      <img src="works/painting2.jpg" alt="Painting 2">
+      <img src="works/painting3.jpg" alt="Painting 3">
+    </div>
+    <button class="back-to-works">← Back to Works</button>
+  </section>
+
+  <!-- ===== VIDEO ART SECTION ===== -->
+  <section id="videoart" class="gallery">
+    <h2>Video Art</h2>
+    <div class="grid">
+      <!-- Add your video thumbnails or embeds -->
+      <video controls>
+        <source src="works/video1.mp4" type="video/mp4">
+      </video>
+      <video controls>
+        <source src="works/video2.mp4" type="video/mp4">
+      </video>
+    </div>
+    <button class="back-to-works">← Back to Works</button>
+  </section>
+
+  <!-- ===== INSTALLATION SECTION ===== -->
+  <section id="installation" class="gallery">
+    <h2>Installation</h2>
+    <div class="grid">
+      <!-- Add installation photos -->
+      <img src="works/installation1.jpg" alt="Installation 1">
+      <img src="works/installation2.jpg" alt="Installation 2">
+    </div>
+    <button class="back-to-works">← Back to Works</button>
+  </section>
+
+  <!-- ===== ABOUT SECTION ===== -->
+  <section id="about" class="about">
+    <div class="about-content">
+      <h2>About</h2>
+      <p>
+        El Shekari is a multidisciplinary artist whose practice spans video art, painting, and installation.
+        Their work explores repetition, memory, and the act of documentation — transforming everyday moments
+        into haunting, cinematic meditations. They record everything, “just in case.”
+      </p>
+      <button class="back-home">← Back</button>
+    </div>
+  </section>
+
+  <!-- ===== CONTACT SECTION ===== -->
+  <section id="contact" class="contact">
+    <div class="contact-content">
+      <h2>Contact</h2>
+      <p>For inquiries, collaborations, or commissions:</p>
+      <p><a href="mailto:yourname@email.com">yourname@email.com</a></p>
+      <button class="back-home">← Back</button>
+    </div>
+  </section>
 
   <script src="script.js"></script>
 </body>
