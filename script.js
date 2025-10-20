@@ -70,29 +70,56 @@ function startSlideshow(){
 function showPanel(toId){
   const current = document.querySelector('.panel.active');
   const next = document.getElementById(toId);
-  if(!current || !next) return;
-  current.classList.remove('active');   // hide current
-  next.classList.add('active');         // show new
-  next.scrollTop = 0;
+  if(!current || !next || current.id === toId) return;
+
+  current.classList.remove('active');
+  // small delay for smooth fade transition
+  setTimeout(() => {
+    next.classList.add('active');
+    next.scrollTop = 0;
+  }, 420);
 }
 
-// NAVIGATION
-document.getElementById('home-link').addEventListener('click', e => {
-  e.preventDefault();
-  showPanel('home');
-});
+// NAV LINKS
+document.addEventListener('DOMContentLoaded', () => {
+  startSlideshow();
 
-document.getElementById('works-link').addEventListener('click', e => {
-  e.preventDefault();
-  showPanel('works');
-});
+  document.getElementById('home-link').addEventListener('click', e => {
+    e.preventDefault();
+    showPanel('home');
+  });
+  document.getElementById('works-link').addEventListener('click', e => {
+    e.preventDefault();
+    showPanel('works');
+  });
+  document.getElementById('bio-link').addEventListener('click', e => {
+    e.preventDefault();
+    showPanel('bio');
+  });
+  document.getElementById('contact-link').addEventListener('click', e => {
+    e.preventDefault();
+    showPanel('contact');
+  });
 
-document.getElementById('bio-link').addEventListener('click', e => {
-  e.preventDefault();
-  showPanel('bio');
-});
+  // WORKS SUBMENU
+  document.getElementById('painting-link').addEventListener('click', e => {
+    e.preventDefault();
+    showPanel('painting');
+  });
+  document.getElementById('videoart-link').addEventListener('click', e => {
+    e.preventDefault();
+    showPanel('videoart');
+  });
+  document.getElementById('installation-link').addEventListener('click', e => {
+    e.preventDefault();
+    showPanel('installation');
+  });
 
-document.getElementById('contact-link').addEventListener('click', e => {
-  e.preventDefault();
-  showPanel('contact');
+  // optional: back buttons inside each panel
+  document.querySelectorAll('.btn.back').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const target = btn.dataset.back || 'home';
+      showPanel(target);
+    });
+  });
 });
