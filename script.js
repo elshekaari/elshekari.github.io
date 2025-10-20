@@ -114,3 +114,11 @@ document.addEventListener('DOMContentLoaded', () => {
     e.preventDefault();
     showPanel('installation');
   });
+   // optional: back buttons inside each panel
+  document.querySelectorAll('.btn.back').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const target = btn.dataset.back || 'home';
+      showPanel(target);
+    });
+  });
+});
