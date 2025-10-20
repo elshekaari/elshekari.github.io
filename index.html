@@ -1,116 +1,138 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>EL SHEKARI</title>
 
   <!-- EB Garamond -->
   <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;500;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
 
-<!-- =========================
-     BACKGROUND SLIDESHOW LAYERS
-========================= -->
-<div id="bg-wrap"
-  <div id="layerA class="bg-layer"></div>
-  <div id="layerB class="bg-layer"></div>
-</div>
+  <!-- =========================
+       BACKGROUND SLIDESHOW
+       Put your video/image files in /media and list them in script.js
+       ========================= -->
+  <div id="bg-wrap" aria-hidden="true">
+    <!-- Layer A (video or image) -->
+    <div class="bg-layer" id="layerA"></div>
+    <!-- Layer B (video or image) -->
+    <div class="bg-layer" id="layerB"></div>
+  </div>
 
-<!-- =========================
-     NAVIGATION
-========================= -->
-<header class="site-header">
-  <nav class="nav">
-    <a href="#" id="home-link" class="nav-link">Home</a>
-    <a href="#" id="works-link" class="nav-link">Works</a>
-    <a href="#" id="bio & CV-link" class="nav-link">Bio & CV</a>
-    <a href="#" id="contact-link" class="nav-link">Contact</a>
-  </nav>
-</header>
+  <!-- =========================
+       NAV + HOME CONTENT
+       ========================= -->
+  <header class="site-header">
+    <nav class="nav">
+      <a href="#" id="home-link" class="nav-link">Home</a>
+      <a href="#" id="works-link" class="nav-link">Works</a>
+      <a href="#" id="bio-link" class="nav-link">Bio &amp; CV</a>
+      <a href="#" id="contact-link" class="nav-link">Contact</a>
+    </nav>
+  </header>
 
-<main id="app">
+  <main id="app">
 
-  <!-- HOME -->
-  <section id="home" class="panel active">
-    <div class="center">
-      <h1 class="title">EL SHEKARI</h1>
-      <p class="subtitle">Multidisciplinary artist</p>
-    </div>
-    <div class="socials-home">
-      <a href="https://www.instagram.com/elshekaari" target="_blank"><img src="icons/instagram.svg" alt="Instagram"></a>
-      <a href="https://www.youtube.com/elvideoarts" target="_blank"><img src="icons/youtube.svg" alt="YouTube"></a>
-      <a href="https://vimeo.com/" target="_blank"><img src="icons/vimeo.svg" alt="Vimeo"></a>
-    </div>
-  </section>
-
-  <!-- WORKS MENU -->
-  <section id="works" class="panel">
-    <div class="panel-inner">
-      <h2>WORK</h2>
-      <nav class="works-nav">
-        <a href="#" id="painting-link" class="cat">Painting</a>
-        <a href="#" id="videos-link" class="cat">Video Art</a>
-        <a href="#" id="installation-link" class="cat">Installation & Sculptures</a>
-      </nav>
-      
-  </section>
-
-  <!-- PAINTING -->
-  <section id="painting" class="panel">
-    <div class="panel-inner">
-      <h2>Painting</h2>
-      <div class="grid" id="paint-grid">
-        <!-- Replace with your painting images -->
-        <img src="works/painting1.jpg" alt="Painting 1">
-        <img src="works/painting2.jpg" alt="Painting 2">
+    <!-- HOME -->
+    <section id="home" class="panel active">
+      <div class="center">
+        <h1 class="title">EL SHEKARI</h1>
+        <p class="subtitle">multidisciplinary artist — painting · video · installation</p>
       </div>
-      
-  </section>
 
-  <!-- VIDEO ART -->
-  <section id="videoart" class="panel">
-    <div class="panel-inner">
-      <h2>Video Art</h2>
-      <div class="grid" id="video-grid">
-        <video controls preload="metadata" src="works/video1.mp4"></video>
+      <!-- small black social icons centered bottom -->
+      <div class="socials-home" aria-hidden="true">
+        <a href="https://www.instagram.com/elshekaari" target="_blank" rel="noopener">
+          <img src="icons/instagram.svg" alt="Instagram">
+        </a>
+        <a href="https://www.youtube.com/" target="_blank" rel="noopener">
+          <img src="icons/youtube.svg" alt="YouTube">
+        </a>
+        <a href="https://vimeo.com/" target="_blank" rel="noopener">
+          <img src="icons/vimeo.svg" alt="Vimeo">
+        </a>
       </div>
-  </section>
+    </section>
 
-  <!-- INSTALLATION & SCULPTURES -->
-  <section id="installation" class="panel">
-    <div class="panel-inner">
-      <h2>Installation & Sculptures</h2>
-      <div class="grid" id="inst-grid">
-        <img src="works/installation1.jpg" alt="Installation 1">
+    <!-- WORKS MENU -->
+    <section id="works" class="panel">
+      <div class="panel-inner">
+        <h2>WORK</h2>
+        <nav class="works-nav">
+          <a href="#" id="painting-link" class="cat">PAINTING</a>
+          <a href="#" id="videoart-link" class="cat">VIDEO ART</a>
+          <a href="#" id="installation-link" class="cat">INSTALLATION</a>
+        </nav>
+        <button class="btn back" id="works-back">← Back</button>
       </div>
-     
-  </section>
+    </section>
 
-  <!-- BIO & CV -->
-  <section id="bio" class="panel">
-    <div class="panel-inner">
-      <h2>Bio & CV</h2>
-      <div class="bio-text">
-        <p><strong>El Shekari</strong> is a multidisciplinary artist working with video, painting, and installation. Replace this with your own bio and CV.</p>
+    <!-- PAINTING GALLERY -->
+    <section id="painting" class="panel">
+      <div class="panel-inner">
+        <h2>Painting</h2>
+        <div class="grid" id="paint-grid">
+          <!-- replace with your files in /works -->
+          <img src="works/painting1.jpg" alt="Painting 1">
+          <img src="works/painting2.jpg" alt="Painting 2">
+          <img src="works/painting3.jpg" alt="Painting 3">
+        </div>
+        <button class="btn back small" data-back="works">← Back to Works</button>
       </div>
-      <button class="btn back" data-back="home">← Back</button>
-    </div>
-  </section>
+    </section>
 
-  <!-- CONTACT -->
-  <section id="contact" class="panel">
-    <div class="panel-inner">
-      <h2>Contact</h2>
-      <p>Email: <a href="elshekari1999@gmail.com" class="mail">yourname@email.com</a></p>
-      <button class="btn back" data-back="home">← Back</button>
-    </div>
-  </section>
+    <!-- VIDEO ART GALLERY -->
+    <section id="videoart" class="panel">
+      <div class="panel-inner">
+        <h2>Video Art</h2>
+        <div class="grid" id="video-grid">
+          <!-- replace with your video files -->
+          <video controls preload="metadata" src="works/video1.mp4"></video>
+          <video controls preload="metadata" src="works/video2.mp4"></video>
+        </div>
+        <button class="btn back small" data-back="works">← Back to Works</button>
+      </div>
+    </section>
 
-</main>
+    <!-- INSTALLATION GALLERY -->
+    <section id="installation" class="panel">
+      <div class="panel-inner">
+        <h2>Installation</h2>
+        <div class="grid" id="inst-grid">
+          <img src="works/installation1.jpg" alt="Installation 1">
+          <img src="works/installation2.jpg" alt="Installation 2">
+        </div>
+        <button class="btn back small" data-back="works">← Back to Works</button>
+      </div>
+    </section>
 
-<script src="script.js"></script>
+    <!-- BIO & CV -->
+    <section id="bio" class="panel">
+      <div class="panel-inner">
+        <h2>Bio &amp; CV</h2>
+        <!-- Replace this paragraph with your real bio & CV text -->
+        <div class="bio-text">
+          <p><strong>El Shekari</strong> is a multidisciplinary artist working with video, painting, and installation. Their work explores repetition, memory, and the ritual of documentation. Replace this bio with your own: education, exhibitions, selected CV, residencies, press, etc.</p>
+        </div>
+        <button class="btn back" data-back="home">← Back</button>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact" class="panel">
+      <div class="panel-inner">
+        <h2>Contact</h2>
+        <p>For inquiries, commissions and collaborations, email: <a href="mailto:yourname@email.com"
+            class="mail">yourname@email.com</a>.</p>
+        <button class="btn back" data-back="home">← Back</button>
+      </div>
+    </section>
+
+  </main>
+
+  <script src="script.js"></script>
 </body>
 </html>
