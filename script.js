@@ -2,7 +2,7 @@
    BACKGROUND SLIDESHOW
 ======================================== */
 const slides = [
-  { type: 'video', src: 'media/vid1.mp4' },
+  { type: 'video', src: 'media/bg1.mp4' },
   { type: 'image', src: 'media/bg2.jpg' },
   { type: 'video', src: 'media/bg3.mp4' }
 ];
@@ -114,12 +114,3 @@ document.addEventListener('DOMContentLoaded', () => {
     e.preventDefault();
     showPanel('installation');
   });
-
-  // optional: back buttons inside each panel
-  document.querySelectorAll('.btn.back').forEach(btn => {
-    btn.addEventListener('click', () => {
-      const target = btn.dataset.back || 'home';
-      showPanel(target);
-    });
-  });
-});
