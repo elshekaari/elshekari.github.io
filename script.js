@@ -114,5 +114,4 @@ document.addEventListener('DOMContentLoaded', () => {
     e.preventDefault();
     showPanel('installation');
   });
-  });
 });
