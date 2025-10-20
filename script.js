@@ -1,149 +1,53 @@
-/* ======================
-   BASE / RESET
-   ====================== */
-* { box-sizing: border-box; margin:0; padding:0; }
-:root{
-  --base:#c1c1c1;         /* user-specified background */
-  --text:#111;            /* dark text for contrast */
-  --muted:#333;
-  --accent:#000;          /* icon color (black) */
-  --max-width:1100px;
-}
-html,body{height:100%;}
-body{
-  font-family: "EB Garamond", serif;
-  background:var(--base);
-  color:var(--text);
-  -webkit-font-smoothing:antialiased;
-  -moz-osx-font-smoothing:grayscale;
-  overflow:hidden; /* keep site full-screen feel; panels can scroll internally */
-  min-height:100vh;
-}
+const slides = [
+  { type: 'video', src: 'media/bg1.mp4' },
+  { type: 'image', src: 'media/bg2.jpg' },
+  { type: 'video', src: 'media/bg3.mp4' }
+];
 
-/* ======================
-   BACKGROUND LAYERS
-   ====================== */
-#bg-wrap{
-  position:fixed; inset:0; z-index:0; pointer-events:none;
-  display:block;
-  overflow:hidden;
-  background:var(--base);
-}
-.bg-layer{
-  position:absolute; inset:0; width:100%; height:100%;
-  background-size:cover; background-position:center;
-  opacity:0; transition:opacity 1.2s ease, transform 1.2s ease;
-  will-change:opacity, transform;
-  filter:brightness(0.9);
+const SLIDE_DURATION = 7000;
+const TRANSITION_DELAY = 1200;
+
+let currentIndex = 0;
+const layerA = document.getElementById('layerA');
+const layerB = document.getElementById('layerB');
+let showingA = true;
+
+function setLayer(layer, slide){
+  layer.innerHTML = '';
+  layer.style.backgroundImage = '';
+  if(slide.type==='video'){
+    const v=document.createElement('video');
+    v.src=slide.src;v.autoplay=true;v.loop=true;v.muted=true;v.playsInline=true;v.preload='auto';
+    v.style.width='100%';v.style.height='100%';v.style.objectFit='cover';v.style.position='absolute';v.style.top=0;v.style.left=0;
+    layer.appendChild(v);
+  }else{layer.style.backgroundImage=`url('${slide.src}')`;}
 }
 
-/* slight slow ken burns effect */
-.bg-layer.show{ opacity:1; transform:scale(1.02); }
-
-/* ======================
-   HEADER / NAV
-   ====================== */
-.site-header{ position:fixed; top:20px; left:0; right:0; z-index:6; display:flex; justify-content:center; pointer-events:auto;}
-.nav{ display:flex; gap:28px; background:transparent; padding:6px 12px; align-items:center; }
-.nav-link{ color:var(--text); text-decoration:none; font-size:16px; letter-spacing:1px; opacity:0.95; transition:opacity .18s, color .18s; }
-.nav-link:hover{ opacity:1; color:var(--muted); }
-
-/* ======================
-   PANEL (SECTION) LAYOUT
-   ====================== */
-#app{ position:relative; z-index:4; height:100vh; width:100%; display:block; overflow:hidden; }
-.panel{
-  position:absolute; inset:0; display:flex; align-items:center; justify-content:center;
-  padding:28px; text-align:center; opacity:0; pointer-events:none; transition:opacity .4s ease;
-  overflow:auto; /* galleries can scroll */
-  -webkit-overflow-scrolling:touch;
-}
-.panel.active{ opacity:1; pointer-events:auto; }
-
-/* center block */
-.center{ max-width:var(--max-width); margin:auto; padding:30px; }
-
-/* TITLE styling - balanced sizes */
-.title{
-  font-size: clamp(34px, 7vw, 64px); /* responsive but standard */
-  letter-spacing: .08em;
-  color:var(--text);
-  margin-bottom:8px;
-}
-.subtitle{
-  font-size: clamp(12px, 2.2vw, 16px);
-  color:var(--muted);
-  margin-top:6px;
+function showNextSlide(){
+  const nextIndex = (currentIndex+1)%slides.length;
+  const nextSlide = slides[nextIndex];
+  const incoming = showingA?layerA:layerB;
+  const outgoing = showingA?layerB:layerA;
+  setLayer(incoming,nextSlide);
+  incoming.classList.add('show');
+  outgoing.classList.remove('show');
+  setTimeout(()=>{outgoing.innerHTML='';outgoing.style.backgroundImage='';},TRANSITION_DELAY+80);
+  showingA = !showingA;
+  currentIndex = nextIndex;
 }
 
-/* ======================
-   HOME SOCIAL ICONS (small black centered bottom)
-   ====================== */
-.socials-home{
-  position:fixed; left:50%; transform:translateX(-50%); bottom:18px; z-index:6; display:flex; gap:20px; pointer-events:auto;
-}
-.socials-home img{ width:20px; height:20px; display:block; filter:none; opacity:1; transition:transform .18s; }
-.socials-home a{ display:inline-block; }
-
-/* ======================
-   WORKS MENU
-   ====================== */
-.panel-inner{ max-width:900px; margin:0 auto; padding:30px; }
-.panel h2{ font-size: clamp(24px, 5vw, 36px); margin-bottom:28px; letter-spacing:.06em; }
-.works-nav{ display:flex; flex-direction:column; gap:14px; align-items:center; }
-.cat{ font-size:20px; text-decoration:none; color:var(--text); padding:10px 16px; transition:color .18s, transform .18s; }
-.cat:hover{ color:var(--muted); transform:translateY(-2px); }
-
-/* ======================
-   GALLERY GRID
-   ====================== */
-.grid{
-  display:flex; flex-wrap:wrap; gap:14px; justify-content:center;
-  margin-top:18px;
-}
-.grid img, .grid video{
-  max-width:320px; width:calc(33% - 18px); height:auto; display:block;
-  border:1px solid rgba(0,0,0,.06); background:#fff;
-  box-shadow: 0 6px 18px rgba(0,0,0,.06);
-}
-.grid video{ background:#000; }
-@media (max-width:900px){
-  .grid img, .grid video{ width:calc(50% - 12px); max-width:320px; }
-}
-@media (max-width:520px){
-  .grid img, .grid video{ width:100%; }
+function startSlideshow(){
+  setLayer(layerA,slides[0]);layerA.classList.add('show');
+  if(slides.length>1){setLayer(layerB,slides[1]);currentIndex=1;showingA=false;layerB.classList.remove('show');layerA.classList.add('show');setTimeout(()=>{currentIndex=0;showingA=true;setInterval(showNextSlide,SLIDE_DURATION);},3000);}
 }
 
-/* ======================
-   BUTTONS
-   ====================== */
-.btn{
-  margin-top:28px; padding:10px 18px; background:transparent; border:1px solid #000; color:var(--text); cursor:pointer;
-  font-family:inherit; font-size:15px;
+function showPanel(fromId,toId){
+  const from=document.getElementById(fromId);const to=document.getElementById(toId);if(!from||!to)return;
+  from.classList.remove('active');setTimeout(()=>{to.classList.add('active');to.scrollTop=0;},420);
 }
-.btn.small{ padding:8px 14px; font-size:14px; }
 
-/* ======================
-   BIO / CONTACT
-   ====================== */
-.bio-text{ max-width:760px; margin:0 auto; color:var(--text); font-size:16px; line-height:1.7; }
-
-/* ======================
-   UTILITY
-   ====================== */
-.back{ position:relative; }
-a.mail{ color:var(--text); text-decoration:underline; }
-
-/* ======================
-   small accessibility / focus styles
-   ====================== */
-a:focus, button:focus{ outline:2px solid rgba(0,0,0,.12); outline-offset:3px; }
-
-/* allow panels to scroll if content tall */
-.panel{ padding-bottom:100px; }
-
-/* keep layout tidy on very small screens */
-@media (max-width:420px){
-  .nav{ gap:14px; }
-  .title{ font-size:34px; }
-}
+document.addEventListener('DOMContentLoaded',()=>{
+  startSlideshow();
+  document.getElementById('works-link').addEventListener('click',e=>{e.preventDefault();showPanel('home','works');});
+  document.getElementById('home-link').addEventListener('click',e=>{e.preventDefault();showPanel(document.querySelector('.panel.active').id,'home');});
+  document.getElementById('bio-link').addEventListener('click',e=>{e
