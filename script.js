@@ -1,5 +1,5 @@
 const slides = [
-  { type: 'video', src: 'media/bg1.mp4' },
+  { type: 'video', src: 'Users/mac/Desktop/elshekaari.github.io\:elshekari.github.io/media/2.mp4' },
   { type: 'image', src: 'media/bg2.jpg' },
   { type: 'video', src: 'media/bg3.mp4' }
 ];
