@@ -1,9 +1,14 @@
-// ===== Slideshow configuration =====
+* ========================================
+   BACKGROUND SLIDESHOW
+======================================== */
 const slides = [
-  { type: 'image', src: 'media/IMG_4717.jpg' }, // 
-  { type: 'video', src: 'media/bg2.mp4' }, // 
-  { type: 'image', src: 'media/bg3.jpg' }  // 
+  { type: 'image', src: 'media/IMG_4717.jpeg.' },
+  { type: 'image', src: 'media/bg2.jpg' },
+  { type: 'video', src: 'media/bg3.mp4' }
 ];
+
+const SLIDE_DURATION = 7000;      // duration per slide in ms
+const TRANSITION_DELAY = 1200;    // crossfade time in ms
 
 let currentIndex = 0;
 let showingA = true;
@@ -11,10 +16,9 @@ let showingA = true;
 const layerA = document.getElementById('layerA');
 const layerB = document.getElementById('layerB');
 
-// Function to set a slide on a layer
-function setLayer(layer, slide) {
+function setLayer(layer, slide){
   layer.innerHTML = '';
-  if (slide.type === 'video') {
+  if(slide.type === 'video'){
     const v = document.createElement('video');
     v.src = slide.src;
     v.autoplay = true;
@@ -24,14 +28,16 @@ function setLayer(layer, slide) {
     v.style.width = '100%';
     v.style.height = '100%';
     v.style.objectFit = 'cover';
+    v.style.position = 'absolute';
+    v.style.top = 0;
+    v.style.left = 0;
     layer.appendChild(v);
   } else {
     layer.style.backgroundImage = `url('${slide.src}')`;
   }
 }
 
-// Function to show the next slide
-function showNextSlide() {
+function showNextSlide(){
   const nextIndex = (currentIndex + 1) % slides.length;
   const nextSlide = slides[nextIndex];
   const incoming = showingA ? layerA : layerB;
@@ -43,12 +49,6 @@ function showNextSlide() {
 
   showingA = !showingA;
   currentIndex = nextIndex;
-}
-
-// Initialize
-setLayer(layerA, slides[0]);
-layerA.classList.add('show');
-setInterval(showNextSlide, 7000); // 7-second fade interval
 }
 
 // start slideshow
