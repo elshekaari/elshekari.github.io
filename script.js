@@ -13,6 +13,15 @@ const TRANSITION_DELAY = 1200;    // crossfade time in ms
 let currentIndex = 0;
 let showingA = true;
 
+const sections = document.querySelectorAll('section');
+document.querySelectorAll('nav a').forEach(link => {
+  link.addEventListener('click', e => {
+    e.preventDefault();
+    const target = document.querySelector(link.getAttribute('href'));
+    sections.forEach(s => s.style.display = 'none'); // hide all
+    target.style.display = 'block'; // show the clicked section
+  });
+});
 const layerA = document.getElementById('layerA');
 const layerB = document.getElementById('layerB');
 
