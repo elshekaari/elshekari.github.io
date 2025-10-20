@@ -1,9 +1,7 @@
 :root{--base:#1c1c1c;--text:#fff;--muted:#aaa;--accent:#000;--max-width:1100px;}
 *{box-sizing:border-box;margin:0;padding:0;}
 html,body{height:100%;font-family:"EB Garamond", serif;background:var(--base);color:var(--text);overflow:hidden;}
-#bg-wrap { z-index: 0; pointer-events: none; }
-nav, section { z-index: 10; position: relative; }
-#bg-wrap{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden;background:var(--base);}
+#bg-wrap{position:fixed;inset:0;z-index:10;pointer-events:none;overflow:hidden;background:var(--base);}
 .bg-layer{position:absolute;inset:0;width:100%;height:100%;background-size:cover;background-position:center;opacity:0;transition:opacity 1.2s ease, transform 1.2s ease;will-change:opacity, transform;filter:brightness(0.9);}
 .bg-layer.show{opacity:1;transform:scale(1.02);}
 .site-header{position:fixed;top:20px;left:0;right:0;z-index:6;display:flex;justify-content:center;pointer-events:auto;}
@@ -11,15 +9,6 @@ nav, section { z-index: 10; position: relative; }
 .nav-link{color:var(--text);text-decoration:none;font-size:16px;letter-spacing:1px;opacity:0.95;transition:opacity .18s, color .18s;}
 .nav-link:hover{opacity:1;color:var(--muted);}
 #app{position:relative;z-index:4;height:100vh;display:block;overflow:hidden;}
-.panel{
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity .4s ease;
-}
-.panel.active{
-  opacity: 1;
-  pointer-events: auto;
-}
 .panel{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;padding:28px;text-align:center;opacity:0;pointer-events:none;transition:opacity .4s ease;overflow:auto;-webkit-overflow-scrolling:touch;}
 .panel.active{opacity:1;pointer-events:auto;}
 .center{max-width:var(--max-width);margin:auto;padding:30px;}
