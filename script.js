@@ -5,8 +5,8 @@
    ========================= */
 const slides = [
   { type: 'video', src: 'media/bg1.mp4' },   // <-- replace with your background video
-  { type: 'image', src: 'media/bg2.jpg' },   // <-- replace with an image
-  { type: 'video', src: 'media/bg3.mp4' }    // <-- add more as needed
+  { type: 'image', src: 'Volumes/eloel/5555555555/ARTWORKS/ceramic/C2AF6CCD-1832-44CA-83E4-FA8535AD054E.jpg' },   // <-- replace with an image
+  { type: 'video', src: 'Volumes/eloel/5555555555/ARTWORKS/zan\ painting\ series/IMG_7402.jpeg' }    // <-- add more as needed
 ];
 
 /* Timing */
