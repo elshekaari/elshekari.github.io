@@ -2,7 +2,7 @@
    BACKGROUND SLIDESHOW
 ======================================== */
 const slides = [
-  { type: 'imaage', src: 'media/IMG_4717.jpeg.' },
+  { type: 'image', src: 'media/IMG_4717.jpeg.' },
   { type: 'image', src: 'media/bg2.jpg' },
   { type: 'video', src: 'media/bg3.mp4' }
 ];
