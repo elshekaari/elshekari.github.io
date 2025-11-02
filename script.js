@@ -1,5 +1,5 @@
 /* ========================================
-   BACKGROUND SLIDESHOW
+   HOME BACKGROUND SLIDESHOW
 ======================================== */
 const slides = [
   { type: 'video', src: 'media/bg1.mp4' },
