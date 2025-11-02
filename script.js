@@ -2,7 +2,8 @@
    HOME BACKGROUND SLIDESHOW
 ======================================== */
 const slides = [
-  { type: 'video', src: 'media/bg1.mp4' },
+  { type: 'video', src: 'elshekari.github.io/media
+/bg1.mp4' },
   { type: 'image', src: 'media/bg2.jpg' },
   { type: 'video', src: 'media/bg3.mp4' }
 ];
