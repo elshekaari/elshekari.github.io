@@ -1,7 +1,8 @@
 :root{--base:#1c1c1c;--text:#fff;--muted:#aaa;--accent:#000;--max-width:1100px;}
 *{box-sizing:border-box;margin:0;padding:0;}
-html,body{height:100%;font-family:"EB Garamond", serif;background:var(--base);color:var(--text);overflow:visible;}
-.box {
+html,body{height:100%;font-family:"EB Garamond", serif;background:repeating-radial-gradient(#000 0 0.0001%,#fff 0 0.0002%) 50% 0/2500px 2500px,
+.box {repeating-conic-gradient(#000 0 0.0001%,#fff 0 0.0002%) 50% 50%/2500px 2500px;color:var(--text);overflow:visible;}
+
   text-transform: uppercase;
   color: #0000;
   font-family: sans-serif;
@@ -11,24 +12,7 @@ html,body{height:100%;font-family:"EB Garamond", serif;background:var(--base);co
     repeating-radial-gradient(#000 0 0.0001%,#fff 0 0.0002%) 50% 0/2500px 2500px,
     repeating-conic-gradient(#000 0 0.0001%,#fff 0 0.0002%) 50% 50%/2500px 2500px;
   background-blend-mode: difference;
-  mix-blend-mode: lighten;
-  -webkit-background-clip: text;
-          background-clip: text;
-}
-
-
-body {
-  margin: 0;
-  min-height: 100vh;
-  display: grid;
-  place-content: center;
-  background: #3c7455;
-}
-
-html {
-  background: #fff;
-}
-#bg-wrap{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:visible;background:var(--base);}
+}#bg-wrap{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:visible;background:var(--base);}
 .bg-layer{position:absolute;inset:0;width:100%;height:100%;background-size:cover;background-position:center;opacity:0;transition:opacity 1.2s ease, transform 1.2s ease;will-change:opacity, transform;filter:brightness(0.9);}
 .bg-layer.show{opacity:1;transform:scale(1.02);}
 .site-header{position:fixed;top:20px;left:0;right:0;z-index:6;display:flex;justify-content:center;pointer-events:auto;}
