@@ -2,7 +2,7 @@
    BACKGROUND SLIDESHOW
 ======================================== */
 const slides = [
-  { type: 'image', src: '/Users/mac/Documents/files-el/photo-output.HEIC ' },
+  { type: 'image', src: '' },
   { type: 'video', src: 'media/bg3.mp4' }
 ];
 
