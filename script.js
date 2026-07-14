@@ -1,8 +1,75 @@
 /* ========================================
    BACKGROUND SLIDESHOW
 ======================================== */
-const slides = [ { type: 'video', src: 'elshekari.github.io/media /bg1.mp4' }, { type: 'image', src: 'media/bg2.jpg' }, { type: 'video', src: 'media/bg3.mp4' } ]; const SLIDE_DURATION = 7000; // duration per slide in ms const TRANSITION_DELAY = 1200; // crossfade time in ms let currentIndex = 0; let showingA = true; const layerA = document.getElementById('layerA'); const layerB = document.getElementById('layerB'); function setLayer(layer, slide){ layer.innerHTML = ''; if(slide.type === 'video'){ const v = document.createElement('video'); v.src = slide.src; v.autoplay = true; v.loop = true; v.muted = true; v.playsInline = true; v.style.width = '100%'; v.style.height = '100%'; v.style.objectFit = 'cover'; v.style.position = 'absolute'; v.style.top = 0; v.style.left = 0; layer.appendChild(v); } else { layer.style.backgroundImage = `url('${slide.src}')`; } } function showNextSlide(){ const nextIndex = (currentIndex + 1) % slides.length; const nextSlide = slides[nextIndex]; const incoming = showingA ? layerA : layerB; const outgoing = showingA ? layerB : layerA; setLayer(incoming, nextSlide); incoming.classList.add('show'); outgoing.classList.remove('show'); showingA = !showingA; currentIndex = nextIndex; } // start slideshow function startSlideshow(){ setLayer(layerA, slides[0]); layerA.classList.add('show'); if(slides.length > 1){ setLayer(layerB, slides[1]); currentIndex = 1; showingA = false; layerB.classList.remove('show'); setInterval(showNextSlide, SLIDE_DURATION); } } /* 
+/* Reset & full-height baseline */
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
+/* Full-screen responsive background */
+body {
+    background-image: url("https://i.ibb.co/cKNN4JwK/photo-output.jpg");
+    background-size: cover;                  /* fills screen without stretching */
+    background-position: center;             /* keeps the center visible */
+    background-repeat: no-repeat;
+    min-height: 100vh;
+    background-attachment: fixed;            /* keeps image fixed on scroll */
+
+    font-family: "GB Garamond", "EB Garamond", serif;
+}
+
+/* Center container */
+.center {
+    min-height: 100vh;                        /* fill viewport height */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;                  /* vertical centering */
+    align-items: center;                      /* horizontal centering */
+    text-align: center;
+    padding: 0 1rem;                          /* prevents overflow on very small screens */
+}
+
+/* Main text */
+.center h1 {
+    color: #F9F6EE; /* bone white */
+    font-size: 2rem;
+    margin: 0 0 20px 0;
+    -webkit-text-stroke: 0.5px rgba(0,0,0,0.6); /* subtle outline */
+}
+
+/* Signature link */
+.center .signature {
+    color: #F9F6EE;
+    font-size: 1.6rem;
+    letter-spacing: 0.5px;
+    text-decoration: none;
+    -webkit-text-stroke: 0.5px rgba(0,0,0,0.65); /* subtle outline */
+
+    /* Underline for "EL SHEKARI" */
+    text-decoration: underline;
+    text-decoration-color: #F9F6EE;           /* match the text color */
+    text-decoration-thickness: 1.5px;
+    text-underline-offset: 3px;
+}
+
+/* Responsive adjustments for phones */
+@media (max-width: 480px) {
+    .center h1 {
+        font-size: 1.5rem;
+    }
+    .center .signature {
+        font-size: 1.2rem;
+    }
+}
+
+/* Utility: if you need a fallback solid background color */
+body.fallback-bg {
+    background-image: none;
+    background-color: #0f0f12; /* dark fallback */
+}
 /* ========================================
    PANEL NAVIGATION (single-page smooth)
 ======================================== */
