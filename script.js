@@ -70,6 +70,7 @@ body.fallback-bg {
     background-image: none;
     background-color: #0f0f12; /* dark fallback */
 }
+
 /* ========================================
    PANEL NAVIGATION (single-page smooth)
 ======================================== */
