@@ -14,15 +14,11 @@
 <!-- =========================
      BACKGROUND SLIDESHOW
 ========================= -->
-  /* Full-screen responsive background */
-body {
-    background-image: url("https://i.ibb.co/Zp7JG2wW/photo-output-6.avif");
-    background-size: cover;                  /* fills screen without stretching */
-    background-position: center;             /* keeps the center visible */
-    background-repeat: no-repeat;
-    min-height: 100vh;
-    background-attachment: fixed;            /* keeps image fixed on scroll */
-
+ <div id="bg-wrap" aria-hidden="true">
+  <div class="bg-layer" id="layerA"></div>
+  <div class="bg-layer" id="layerB"></div>
+</div>
+  
 <!-- =========================
      NAVIGATION
 ========================= -->
@@ -46,10 +42,7 @@ body {
     <div class="socials-home">
       <a href="https://www.instagram.com/elshekaari" target="_blank"><img src="icons/instagram.svg" alt="Instagram"></a>
       <a href="https://www.instagram.com/elvideoos" target="_blank"><img src="icons/instagram.svg" alt="Instagram"></a>
-      <a href="https://www.youtube.com/elvideoos" target="_blank"><img src="<div id="bg-wrap" aria-hidden="true">
-  <div class="bg-layer" id="layerA"></div>
-  <div class="bg-layer" id="layerB"></div>
-</div>" alt="YouTube"></a>
+      <a href="https://www.youtube.com/elvideoos" target="_blank"><img src="icons/instagram.svg" alt="YouTube"></a>
       <a href="https://vimeo.com/" target="_blank"><img src="icons/vimeo.svg" alt="Vimeo"></a>
     </div>
   </section>
